@@ -6,10 +6,10 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func Routers(c *gin.Engine) {
-	c.GET("/users", controller.GetUsers)
-	c.POST("/users", controller.PostUser)
-	c.GET("/users/:id", controller.GetByID)
-	c.DELETE("/users/:id", controller.DeleteByid)
-	c.PUT("/users", controller.UpdateUser)
+func Routers(c *gin.Engine, h controller.UserHandler) {
+	c.GET("/users", h.GetUsers)
+	c.POST("/users", h.PostUser)
+	c.GET("/users/:id", h.GetByID)
+	c.DELETE("/users/:id", h.DeleteById)
+	c.PUT("/users", h.UpdateUser)
 }
